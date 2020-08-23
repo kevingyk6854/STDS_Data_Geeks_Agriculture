@@ -12,12 +12,11 @@
   - build ---> to build the project (not sure yet)
   - src   ---> to put codes, template file or other files necessary to run the project
 
-- [researches]  ---> used to save researches that members found
-  - 
+- [researches]  ---> used to save researches that members found 
   
   
 ## Basic Git Commands That You Might Need
-- git pull                          --> To get the latest version of a repository  
+- [git pull]                          --> To get the latest version of a repository  
 - git status                        --> To check the current state of the local repository compared with remote one  
 - git add <file or directory name>  --> To add a specific file to the staging area for git  
 - git add .                         --> To add all file  
