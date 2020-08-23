@@ -2,10 +2,12 @@
 
 ## Catalogue
 
-- [datasets]
+- [datasets]    -- used to save datasets
+  - raw_datasets
+  - processed_datasets
 
-- [notebooks]
+- [notebooks]   -- used to save ideas, information
 
-- [project]
+- [project]     -- used to save project (R or Python)
 
-- [research]
+- [researches]  -- used to save researches group found
