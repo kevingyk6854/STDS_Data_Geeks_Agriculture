@@ -1,3 +1,11 @@
-`Tempeture and Precip` - Time Series Values for Individual Locations
-    + https://prism.oregonstate.edu/explorer/
- 
+- `Natural resources datasets` - Provided by USDA - https://www.ers.usda.gov/about-ers/partnerships/strengthening-statistics-through-the-icars/natural-resources-datasets/
+- `Tempeture and Precip` - Time Series Values for Individual Locations - https://prism.oregonstate.edu/explorer/  
+- `Crop Yield` - National Commodity Crops Productivity Index (NCCPI) - https://geospatial.wvu.edu/detailed-soil-atlas/nccpi  
+- `Drought Monitor` - Comprehensive statistics - https://droughtmonitor.unl.edu/Data/DataDownload.aspx
+- `Yearly data for Crop Yield` - https://data.ers.usda.gov/FEED-GRAINS-custom-query.aspx#ResultsPanel
+- `2018 Farm Bill` - https://www.unitedfresh.org/farm-billagricultural-policy/?utm_term=farm%20bill%20facts&utm_campaign=Resources&utm_source=adwords&utm_medium=ppc&hsa_acc=2030569001&hsa_cam=1672448557&hsa_grp=66611623163&hsa_ad=332784697410&hsa_src=g&hsa_tgt=kwd-642994985985&hsa_kw=farm%20bill%20facts&hsa_mt=b&hsa_net=adwords&hsa_ver=3&gclid=Cj0KCQjws536BRDTARIsANeUZ5-avlFVaLL-Vknk2QBGSynpN-DkRjz1VuEyaQkCYIJ5C1VMCU50UqkaAn-wEALw_wcB
+- `2014 Farm Bill` - Highlights and Implications - https://www.ers.usda.gov/agricultural-act-of-2014-highlights-and-implications/
+- `Major Land Uses` - https://www.ers.usda.gov/data-products/major-land-uses/
+- `Commodity Costs and Returns` - Recent and historical data - https://www.ers.usda.gov/data-products/commodity-costs-and-returns/commodity-costs-and-returns/#Recent%20Cost%20and%20Returns
+- `Solar Radiation API` - Solcast - https://solcast.com/solar-data-api/api-toolkit/?_ga=2.7277300.796844446.1598684136-1305363743.1598684136
+- `Employment in Agriculture` - https://ourworldindata.org/employment-in-agriculture
