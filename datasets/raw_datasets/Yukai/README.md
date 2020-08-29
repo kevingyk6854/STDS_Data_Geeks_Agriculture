@@ -9,3 +9,4 @@
 - `Commodity Costs and Returns` - Recent and historical data - https://www.ers.usda.gov/data-products/commodity-costs-and-returns/commodity-costs-and-returns/#Recent%20Cost%20and%20Returns
 - `Solar Radiation API` - Solcast - https://solcast.com/solar-data-api/api-toolkit/?_ga=2.7277300.796844446.1598684136-1305363743.1598684136
 - `Employment in Agriculture` - https://ourworldindata.org/employment-in-agriculture
+- `Census of Agriculture` - State level - https://www.nass.usda.gov/Publications/AgCensus/2017/Full_Report/Volume_1,_Chapter_1_State_Level/
