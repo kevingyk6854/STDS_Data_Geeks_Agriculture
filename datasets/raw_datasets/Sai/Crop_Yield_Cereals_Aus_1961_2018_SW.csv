@@ -1,0 +1,175 @@
+Domain Code,Domain,Area Code,Area,Element Code,Element,Item Code,Item,Year Code,Year,Unit,Value,Flag,Flag Description
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1961,1961,ha,8441623,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1961,1961,hg/ha,10839,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1961,1961,tonnes,9149882,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1962,1962,ha,9154626,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1962,1962,hg/ha,12173,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1962,1962,tonnes,11143648,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1963,1963,ha,9191184,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1963,1963,hg/ha,12852,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1963,1963,tonnes,11812267,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1964,1964,ha,9822032,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1964,1964,hg/ha,13237,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1964,1964,tonnes,13001568,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1965,1965,ha,9846764,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1965,1965,hg/ha,9835,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1965,1965,tonnes,9684056,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1966,1966,ha,11504354,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1966,1966,hg/ha,14416,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1966,1966,tonnes,16585035,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1967,1967,ha,11884253,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1967,1967,hg/ha,8308,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1967,1967,tonnes,9873734,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1968,1968,ha,14121516,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1968,1968,hg/ha,13387,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1968,1968,tonnes,18905065,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1969,1969,ha,12781700,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1969,1969,hg/ha,11149,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1969,1969,tonnes,14250318,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1970,1970,ha,10598124,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1970,1970,hg/ha,12176,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1970,1970,tonnes,12904533,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1971,1971,ha,11689197,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1971,1971,hg/ha,12696,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1971,1971,tonnes,14840092,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1972,1972,ha,11555097,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1972,1972,hg/ha,9331,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1972,1972,tonnes,10781927,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1973,1973,ha,12891607,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1973,1973,hg/ha,13185,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1973,1973,tonnes,16997800,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1974,1974,ha,11744994,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1974,1974,hg/ha,13936,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1974,1974,tonnes,16367969,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1975,1975,ha,12564985,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1975,1975,hg/ha,14140,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1975,1975,tonnes,17767379,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1976,1976,ha,12967979,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1976,1976,hg/ha,13455,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1976,1976,tonnes,17448064,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1977,1977,ha,14599138,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1977,1977,hg/ha,9875,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1977,1977,tonnes,14417267,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1978,1978,ha,15042503,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1978,1978,hg/ha,16802,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1978,1978,tonnes,25274482,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1979,1979,ha,15457828,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1979,1979,hg/ha,15102,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1979,1979,tonnes,23343860,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1980,1980,ha,15587177,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1980,1980,hg/ha,10523,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1980,1980,tonnes,16402312,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1981,1981,ha,16912666,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1981,1981,hg/ha,14015,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1981,1981,tonnes,23703676,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1982,1982,ha,16201605,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1982,1982,hg/ha,8756,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1982,1982,tonnes,14186565,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1983,1983,ha,18873052,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1983,1983,hg/ha,16462,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1983,1983,tonnes,31068963,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1984,1984,ha,17772613,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1984,1984,hg/ha,16093,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1984,1984,tonnes,28602111,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1985,1985,ha,17165159,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1985,1985,hg/ha,14531,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1985,1985,tonnes,24942194,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1986,1986,ha,15771295,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1986,1986,hg/ha,15219,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1986,1986,tonnes,24001774,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1987,1987,ha,13857882,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1987,1987,hg/ha,14360,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1987,1987,tonnes,19899619,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1988,1988,ha,13434992,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1988,1988,hg/ha,16294,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1988,1988,tonnes,21891006,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1989,1989,ha,13347412,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1989,1989,hg/ha,16764,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1989,1989,tonnes,22375364,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1990,1990,ha,13428753,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1990,1990,hg/ha,17161,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1990,1990,tonnes,23045332,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1991,1991,ha,11692782,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1991,1991,hg/ha,16034,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1991,1991,tonnes,18747862,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1992,1992,ha,13319773,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1992,1992,hg/ha,18966,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1992,1992,tonnes,25261706,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1993,1993,ha,13541766,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1993,1993,hg/ha,19795,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1993,1993,tonnes,26805757,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1994,1994,ha,12166478,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1994,1994,hg/ha,12667,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1994,1994,tonnes,15410973,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1995,1995,ha,14638839,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1995,1995,hg/ha,18710,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1995,1995,tonnes,27389413,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1996,1996,ha,16739387,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1996,1996,hg/ha,21295,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1996,1996,tonnes,35645886,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1997,1997,ha,15989006,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1997,1997,hg/ha,19538,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1997,1997,tonnes,31238927,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1998,1998,ha,16784700,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1998,1998,hg/ha,19863,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1998,1998,tonnes,33339400,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",1999,1999,ha,16754700,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",1999,1999,hg/ha,21110,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",1999,1999,tonnes,35368800,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",2000,2000,ha,17554290,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",2000,2000,hg/ha,19623,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",2000,2000,tonnes,34446938,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",2001,2001,ha,17717090,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",2001,2001,hg/ha,19596,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",2001,2001,tonnes,34718061,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",2002,2002,ha,17561143,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",2002,2002,hg/ha,21975,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",2002,2002,tonnes,38590113,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",2003,2003,ha,17196654,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",2003,2003,hg/ha,10207,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",2003,2003,tonnes,17553202,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",2004,2004,ha,20026924,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",2004,2004,hg/ha,21164,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",2004,2004,tonnes,42384122,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",2005,2005,ha,20274539,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",2005,2005,hg/ha,16946,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",2005,2005,tonnes,34357112,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",2006,2006,ha,19181586,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",2006,2006,hg/ha,21117,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",2006,2006,tonnes,40504980,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",2007,2007,ha,18110965,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",2007,2007,hg/ha,9813,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",2007,2007,tonnes,17771911,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",2008,2008,ha,20159099,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",2008,2008,hg/ha,13327,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",2008,2008,tonnes,26866214,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",2009,2009,ha,20674118,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",2009,2009,hg/ha,16514,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",2009,2009,tonnes,34140448,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",2010,2010,ha,20141256,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",2010,2010,hg/ha,16615,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",2010,2010,tonnes,33464874,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",2011,2011,ha,19057341,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",2011,2011,hg/ha,20975,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",2011,2011,tonnes,39973082,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",2012,2012,ha,19431383,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",2012,2012,hg/ha,22316,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",2012,2012,tonnes,43362426,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",2013,2013,ha,18381762,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",2013,2013,hg/ha,19361,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",2013,2013,tonnes,35589236,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",2014,2014,ha,17970210,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",2014,2014,hg/ha,21380,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",2014,2014,tonnes,38419626,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",2015,2015,ha,18346326,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",2015,2015,hg/ha,20274,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",2015,2015,tonnes,37194952,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",2016,2016,ha,16976392,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",2016,2016,hg/ha,20752,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",2016,2016,tonnes,35229204,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",2017,2017,ha,18714853,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",2017,2017,hg/ha,26743,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",2017,2017,tonnes,50048408,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5312,Area harvested,1717,"Cereals, Total",2018,2018,ha,16635179,A,"Aggregate, may include official, semi-official, estimated or calculated data"
+QC,Crops,10,Australia,5419,Yield,1717,"Cereals, Total",2018,2018,hg/ha,20355,Fc,Calculated data
+QC,Crops,10,Australia,5510,Production,1717,"Cereals, Total",2018,2018,tonnes,33860883,A,"Aggregate, may include official, semi-official, estimated or calculated data"
