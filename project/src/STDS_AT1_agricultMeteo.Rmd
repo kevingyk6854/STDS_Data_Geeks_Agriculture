@@ -40,7 +40,7 @@ Text\
 # Reading csv file and skipping the first 4 rows then assigning to tibble (yield_area_raw)
 # (Data from: https://www.abs.gov.au/AUSSTATS/abs@.nsf/DetailsPage/7121.02015-16?OpenDocument)
 
-yield_area_raw <- read_csv(here::here("data", "7121DO004_201516.csv"), skip = 4)
+yield_area_raw <- read_csv(here::here("project/src/data", "7121DO004_201516.csv"), skip = 4)
 
 
 ```
