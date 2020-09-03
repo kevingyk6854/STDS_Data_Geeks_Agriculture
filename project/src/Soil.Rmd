@@ -10,6 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## TESTING testtest
+
 ## R Markdown
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
@@ -26,6 +27,10 @@ You can also embed plots, for example:
 
 ```{r pressure, echo=FALSE}
 plot(pressure)
+
+View(mysheets)
+
+mysheets <- read_excel_allsheets("fertilize by state 2016-17.xls")
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
