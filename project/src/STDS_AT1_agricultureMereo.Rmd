@@ -89,6 +89,16 @@ crs(annual_solar_2090) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_d
 
 ```
 
+```{r read, echo=TRUE, warning=FALSE, message=FALSE}
+
+# Reading csv file and skipping the first 4 rows then assigning to tibble (fertilise_raw)
+# (Data from: https://www.abs.gov.au/AUSSTATS/abs@.nsf/DetailsPage/4627.02016-17?OpenDocument)
+
+fertilise_raw <- read_csv(here::here("project/src/data", "123123.csv"), skip = 4)
+
+
+```
+
 
 ## Step 2: Tyding Data
 
