@@ -25,8 +25,30 @@
 - `git checkout <branch_name>`                  --> To switch branch  
 - `git rm -f <file_name>`                       --> To delete a file  
 - `git reset <file or directory name>`                    --> To remove a file from the staging area
-- `git push`                                    --> To send local commits to the remote   repository (Note: please make sure not submit files that would make the whole project breakdown !!!)  
+- `git push`                                    --> To send local commits to the remote   repository (Note: please make sure not submit files that would make the whole project breakdown !!!)
 
 Note: If you need any other extra help related to git, you could check these websites:  
 > https://git-scm.com/docs  
 > http://guides.beanstalkapp.com/version-control/common-git-commands.html  
+
+## How to upload large file (>100MB) to Github
+1. download and install LFS  
+- `brew install git-lfs`    --> Homebrew  
+- `git lfs install`         --> set up LFS  
+2. tell LFS which file you want to mark it as 'a large file'
+- `git lfs track "<file_name>"`
+3. add '.gitattributes' and commit it first
+- `git add .gitattributes`
+- `git commit -m "modify .gitattributes for lfs"` 
+- `git push`
+4. add large files and commit them
+- `git add <files>`
+- `git commit -m "<message>"`
+- `git push`
+
+Note: 
+1. Highly recommand upload '.gitattributes' first, then upload large files. Otherwise, you might get trouble in 'git push' !!!!
+2. If you get trouble with 'git commit' and want to withdraw that action, please type in 'git reset --soft HEAD^'. If you need more help you can check this website: https://git-scm.com/docs/git-reset
+2. If you need any other extra help related to lfs, you could check these websites:  
+> https://git-lfs.github.com/  
+> https://www.jianshu.com/p/3f25cd20e392 (Chinese)  
