@@ -17,7 +17,6 @@ yield_area_raw <- read_csv(here::here("project/src/data/yield", "7121DO004_20151
 
 ### load gridded climate raster data ###
 mean_temp <- raster(here("project/src/data/BOM_climate/mean_temperature", "meanann.txt"))
-plot(mean_temp)
 mean_rainfall <- raster(here("project/src/data/BOM_climate/mean_rainfall", "rnozan.txt"))
 annual_solar <- raster(here("project/src/data/BOM_climate/solar_exposure", "solaran.txt"))
 
@@ -48,6 +47,12 @@ crs(annual_solar_2090) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_d
 # (Data from: https://www.abs.gov.au/AUSSTATS/abs@.nsf/DetailsPage/4627.02016-17?OpenDocument)
 fertilise_raw <- read_csv(here::here("project/src/data", "123123.csv"), skip = 4)
 
+# load SA2 regions for SA and WA
+SA2_SA_WA <- readOGR(dsn  = here("project/src/data", "SA2_2016_SA_WA.shp"), layer = "SA2_2016_SA_WA")
+
+# load agircultural landuses for SA and WA 
+landuse_SA_WA <- readOGR(dsn  = here("project/src/data", "landuse_SA_WA.shp"), layer = "landuse_SA_WA")
+
 # load soil data
 
 
@@ -57,7 +62,6 @@ fertilise_raw <- read_csv(here::here("project/src/data", "123123.csv"), skip = 4
 ### tidy data ###
 
 # Select and filter Wheat and Area (ha)
-
 yield_area_1_tidy <- yield_area_raw %>% 
   dplyr::select ('Region code', 'Region label', 'Commodity description', 'Estimate')
 
@@ -69,7 +73,6 @@ yield_area_1_tidy <- yield_area_1_tidy %>%
   dplyr::select(-description)
 
 # Select and filter Wheat and Yiel (t/ha) 
-
 yield_area_2_tidy <- yield_area_raw %>% 
   dplyr::select ('Region label', 'Commodity description', 'Estimate', 'Number of agricultural businesses')
 
@@ -81,29 +84,33 @@ yield_area_2_tidy <- yield_area_2_tidy %>%
   dplyr::select (-description)
 
 # Join   
-
 region_yield_area_tidy <- left_join(yield_area_1_tidy, yield_area_2_tidy)
 
-
-# filter only SA2 entries by region code
-
+# filter only SA and WA SA2 entries by region code
+region_yield_area_SA_WA <- region_yield_area_tidy %>% 
+  filter(between(code, 400000000, 599999999)) %>% 
+  mutate(code = as.factor(code))
 
 ### Merge Data ### 
-
-
 # extract the climate raster values to a list object for each SA2 region
-climate.mean_temp <- raster::extract(mean_temp, SA2)
-climate.mean_rainfall <- raster::extract(mean_rainfall, SA2)
-climate.annual_solar <- raster::extract(annual_solar, SA2)
+# long time to run 
+climate.temp <- raster::extract(mean_temp, SA2_SA_WA)
+climate.rainfall <- raster::extract(mean_rainfall, SA2_SA_WA)
+climate.solar <- raster::extract(annual_solar, SA2_SA_WA)
 
 # additional step is to group the agricultural land use polygons by type and land use, then extract climate data in only these areas 
 
 
 # to obtain one average value for every polygon calculate the mean values with lapply
-climate.mean_temp_region <- unlist(lapply(climate.mean_temp, FUN=mean))
-
+climate.mean_temp_region <- unlist(lapply(climate.temp, FUN=mean))
+climate.mean_rainfall_region <- unlist(lapply(climate.rainfall, FUN=mean))
+climate.mean_solar_region <- unlist(lapply(climate.solar, FUN=mean))
 
 # merge climate values for each SA2 region with yields 
+SA2_SA_WA@data <- data.frame(SA2_SA_WA@data, mean_temp = climate.mean_temp_region, mean_rainfall = climate.mean_rainfall_region, mean_solar = climate.mean_solar_region)
 
+# merge climate projection data in the same way
+region_yield_area_climate_SA_WA <- left_join(region_yield_area_SA_WA, as.data.frame(SA2_SA_WA), by = c("code" = "SA2_MAIN16"))
 
-
+region_yield_area_climate_SA_WA <- region_yield_area_climate_SA_WA %>% 
+  dplyr::select(code:area, mean_temp:mean_solar)
