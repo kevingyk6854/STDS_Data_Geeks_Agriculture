@@ -1,5 +1,5 @@
 ---
-title: "Modeling Crop Yield for Wheat on Meteo and Soild Data"
+title: "Modeling Crop Yield for Wheat on Meteo and Soiled Data"
 author: "Group Name"
 date: "01/09/2020"
 output:
@@ -119,7 +119,7 @@ yield_area_1_tidy <- yield_area_1_tidy %>%
   filter(str_detect(description, "Yield")) %>% 
   dplyr::select(-description)
 
-# Select and filter Wheat and Yiel (t/ha) 
+# Select and filter Wheat and Yield (t/ha) 
 
 yield_area_2_tidy <- yield_area_raw %>% 
   dplyr::select ('Region label', 'Commodity description', 'Estimate', 'Number of agricultural businesses')
