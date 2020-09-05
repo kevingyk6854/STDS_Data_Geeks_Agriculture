@@ -55,6 +55,7 @@ SA2 <- readOGR(dsn  = here("project/src/data/SA2", "SA2_2016_AUST.shp"), layer =
 
 # load gridded climate raster data
 mean_temp <- raster(here("project/src/data/BOM_climate/mean_temperature", "meanann.txt"))
+plot(mean_temp)
 mean_rainfall <- raster(here("project/src/data/BOM_climate/mean_rainfall", "rnozan.txt"))
 annual_solar <- raster(here("project/src/data/BOM_climate/solar_exposure", "solaran.txt"))
 
