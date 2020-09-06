@@ -6,6 +6,10 @@ library(ggplot2)
 library(rgdal)
 library(raster)
 library(rsdmx)
+library(sp)
+library(slga)
+library(readr)
+
 
 ### yield data ###
 # Reading csv file and skipping the first 4 rows then assigning to tibble (yield_area_raw)
@@ -20,10 +24,20 @@ mean_temp <- raster(here("project/src/data/BOM_climate/mean_temperature", "meana
 mean_rainfall <- raster(here("project/src/data/BOM_climate/mean_rainfall", "rnozan.txt"))
 annual_solar <- raster(here("project/src/data/BOM_climate/solar_exposure", "solaran.txt"))
 
+### load gridded soil raster data ###
+
+# get surface clay content for Perth
+
+aoi_perth <- c(115.73, -32.55, 116.05, -32.05)
+Perth_surface_clay <- get_soils_data(product = 'NAT', attribute = 'CLY',
+                                     component = 'VAL', depth = 1,
+                                     aoi = aoi_perth, write_out = FALSE)
+
 # set CRS projection for the rasters
 crs(mean_temp) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
 crs(mean_rainfall) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
 crs(annual_solar) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(Perth_surface_clay) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
 
 # load climate projection csv data, remove first row of units
 mean_temp_2090 <- read_csv(here("project/src/data/climate_change", "mean_temp_annual_2090.csv"))[-1,]
@@ -52,8 +66,6 @@ SA2_SA_WA <- readOGR(dsn  = here("project/src/data", "SA2_2016_SA_WA.shp"), laye
 
 # load agircultural landuses for SA and WA 
 landuse_SA_WA <- readOGR(dsn  = here("project/src/data", "landuse_SA_WA.shp"), layer = "landuse_SA_WA")
-
-# load soil data
 
 
 # load FAO data
@@ -92,22 +104,25 @@ region_yield_area_SA_WA <- region_yield_area_tidy %>%
   mutate(code = as.factor(code))
 
 ### Merge Data ### 
-# extract the climate raster values to a list object for each SA2 region
+# extract the climate and soil raster values to a list object for each SA2 region
 # long time to run 
 climate.temp <- raster::extract(mean_temp, SA2_SA_WA)
 climate.rainfall <- raster::extract(mean_rainfall, SA2_SA_WA)
 climate.solar <- raster::extract(annual_solar, SA2_SA_WA)
+soil.perth.clay <-  raster::extract(Perth_surface_clay, SA2_SA_WA)
 
-# additional step is to group the agricultural land use polygons by type and land use, then extract climate data in only these areas 
+# additional step is to group the agricultural land use polygons by type and land use, then extract climate & soil data in only these areas 
 
 
 # to obtain one average value for every polygon calculate the mean values with lapply
 climate.mean_temp_region <- unlist(lapply(climate.temp, FUN=mean))
 climate.mean_rainfall_region <- unlist(lapply(climate.rainfall, FUN=mean))
 climate.mean_solar_region <- unlist(lapply(climate.solar, FUN=mean))
+soil.mean_clay_region <- unlist(lapply(soil.perth.clay, FUN=mean)) #lots of NA
 
-# merge climate values for each SA2 region with yields 
-SA2_SA_WA@data <- data.frame(SA2_SA_WA@data, mean_temp = climate.mean_temp_region, mean_rainfall = climate.mean_rainfall_region, mean_solar = climate.mean_solar_region)
+# merge climate and soil values for each SA2 region with yields 
+SA2_SA_WA@data <- data.frame(SA2_SA_WA@data, mean_temp = climate.mean_temp_region, mean_rainfall = climate.mean_rainfall_region, mean_solar = climate.mean_solar_region, mean_soil_clay = soil.mean_clay_region)
+
 
 # merge climate projection data in the same way
 region_yield_area_climate_SA_WA <- left_join(region_yield_area_SA_WA, as.data.frame(SA2_SA_WA), by = c("code" = "SA2_MAIN16"))
