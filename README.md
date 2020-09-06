@@ -48,7 +48,7 @@ Note: If you need any other extra help related to git, you could check these web
 
 Note: 
 1. Highly recommand upload '.gitattributes' first, then upload large files. Otherwise, you might get trouble in 'git push' !!!!
-2. If you get trouble with 'git commit' and want to withdraw that action, please type in 'git reset --soft HEAD^'. If you need more help you can check this website: https://git-scm.com/docs/git-reset
+2. If you get trouble with 'git commit' and want to withdraw that action, please type in 'git reset --soft HEAD~1' or 'git reset --soft HEAD^'. If you need more help you can check this website: https://git-scm.com/docs/git-reset
 2. If you need any other extra help related to lfs, you could check these websites:  
 > https://git-lfs.github.com/  
 > https://www.jianshu.com/p/3f25cd20e392 (Chinese)  
