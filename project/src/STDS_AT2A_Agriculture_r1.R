@@ -10,7 +10,7 @@ library(sp)
 library(slga)
 library(readr)
 
-
+### loading, tidying and merging datasets ###
 ### yield data ###
 # Reading csv file and skipping the first 4 rows then assigning to tibble (yield_area_raw)
 # (Data from: https://www.abs.gov.au/AUSSTATS/abs@.nsf/DetailsPage/7121.02015-16?OpenDocument) - link doesn't work
@@ -26,18 +26,18 @@ annual_solar <- raster(here("project/src/data/BOM_climate/solar_exposure", "sola
 
 ### load gridded soil raster data ###
 
-# get surface clay content for Perth
+# get surface clay content for part of wheat belt in WA
 
-aoi_perth <- c(115.73, -32.55, 116.05, -32.05)
-Perth_surface_clay <- get_soils_data(product = 'NAT', attribute = 'CLY',
+aoi_WA <- c(115.9, -34.2, 118.0, -30.6)
+WA_surface_clay <- get_soils_data(product = 'NAT', attribute = 'CLY',
                                      component = 'VAL', depth = 1,
-                                     aoi = aoi_perth, write_out = FALSE)
+                                     aoi = aoi_WA, write_out = FALSE)
 
 # set CRS projection for the rasters
 crs(mean_temp) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
 crs(mean_rainfall) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
 crs(annual_solar) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
-crs(Perth_surface_clay) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(WA_surface_clay) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
 
 # load climate projection csv data, remove first row of units
 mean_temp_2090 <- read_csv(here("project/src/data/climate_change", "mean_temp_annual_2090.csv"))[-1,]
@@ -109,7 +109,7 @@ region_yield_area_SA_WA <- region_yield_area_tidy %>%
 climate.temp <- raster::extract(mean_temp, SA2_SA_WA)
 climate.rainfall <- raster::extract(mean_rainfall, SA2_SA_WA)
 climate.solar <- raster::extract(annual_solar, SA2_SA_WA)
-soil.perth.clay <-  raster::extract(Perth_surface_clay, SA2_SA_WA)
+soil.clay <-  raster::extract(WA_surface_clay, SA2_SA_WA)
 
 # additional step is to group the agricultural land use polygons by type and land use, then extract climate & soil data in only these areas 
 
@@ -118,14 +118,12 @@ soil.perth.clay <-  raster::extract(Perth_surface_clay, SA2_SA_WA)
 climate.mean_temp_region <- unlist(lapply(climate.temp, FUN=mean))
 climate.mean_rainfall_region <- unlist(lapply(climate.rainfall, FUN=mean))
 climate.mean_solar_region <- unlist(lapply(climate.solar, FUN=mean))
-soil.mean_clay_region <- unlist(lapply(soil.perth.clay, FUN=mean)) #lots of NA
+soil.mean_clay_region <- unlist(lapply(soil.clay, FUN=mean)) # lots of NA because the sample soil data does not cover all of WA and SA
 
 # merge climate and soil values for each SA2 region with yields 
 SA2_SA_WA@data <- data.frame(SA2_SA_WA@data, mean_temp = climate.mean_temp_region, mean_rainfall = climate.mean_rainfall_region, mean_solar = climate.mean_solar_region, mean_soil_clay = soil.mean_clay_region)
 
+region_yield_area_climate_soil_SA_WA <- left_join(region_yield_area_SA_WA, as.data.frame(SA2_SA_WA), by = c("code" = "SA2_MAIN16"))
 
-# merge climate projection data in the same way
-region_yield_area_climate_SA_WA <- left_join(region_yield_area_SA_WA, as.data.frame(SA2_SA_WA), by = c("code" = "SA2_MAIN16"))
-
-region_yield_area_climate_SA_WA <- region_yield_area_climate_SA_WA %>% 
-  dplyr::select(code:area, mean_temp:mean_solar)
+region_yield_area_climate_soil_SA_WA <- region_yield_area_climate_soil_SA_WA %>% 
+  dplyr::select(code:businesses, SA3_region = SA3_NAME16, mean_temp:mean_soil_clay)
