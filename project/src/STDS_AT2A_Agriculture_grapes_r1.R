@@ -10,6 +10,7 @@ library(sp)
 library(slga)
 library(readr)
 library(geosphere)
+library(mapview)
 
 ### loading, tidying and merging datasets ###
 ### yield data ###
@@ -32,45 +33,50 @@ crs(annual_solar) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
 
 # load SA2 regions
 SA2 <- readOGR(dsn  = here("project/src/data/SA2", "SA2_2016_AUST.shp"), layer = "SA2_2016_AUST")
-
+proj4string(SA2) <- proj4string(mean_temp) 
+  
 # load agircultural landuses 
 landuse <- readOGR(dsn  = here("project/src/data/landuse", "CLUM_Commodities_2018_v2.shp"), layer = "CLUM_Commodities_2018_v2")
-
+proj4string(landuse) <- proj4string(mean_temp)
 
 ### tidy data ###
 
 # Select and filter wine grapes and Area (ha)
 yield_area_1_tidy <- yield_area_raw %>% 
-  dplyr::select ('Region code', 'Region label', 'Commodity description', 'Estimate')
+  dplyr::select ('Region code', 'Region label', 'Commodity code', 'Estimate')
 
-colnames(yield_area_1_tidy) <- c("code", "region", "description", "yield")
+colnames(yield_area_1_tidy) <- c("code", "region", "comm_code", "yield")
 
 yield_area_1_tidy <- yield_area_1_tidy %>%  
-  filter(str_detect(description, "Grapes for wine")) %>% 
-  filter(str_detect(description, "Yield")) %>% 
-  dplyr::select(-description)
+  filter(comm_code == "GRAPESWINE_YIELD_F") %>% 
+  dplyr::select(-comm_code)
 
 # Select and filter Wheat and Yield (t/ha) 
 yield_area_2_tidy <- yield_area_raw %>% 
-  dplyr::select ('Region label', 'Commodity description', 'Estimate', 'Number of agricultural businesses')
+  dplyr::select ('Region code', 'Region label', 'Commodity code', 'Estimate', 'Number of agricultural businesses')
 
-colnames(yield_area_2_tidy) <- c("region", "description", "area", "businesses")
+colnames(yield_area_2_tidy) <- c("code", "region", "comm_code", "area", "businesses")
 
 yield_area_2_tidy <- yield_area_2_tidy %>%  
-  filter(str_detect(description, "Grapes for wine")) %>% 
-  filter(str_detect(description, "Area")) %>% 
-  dplyr::select (-description)
+  filter(comm_code == "AGGRAPEWINAHA_F") %>% 
+  dplyr::select (-comm_code)
 
 # Join   
-region_yield_area_tidy <- left_join(yield_area_1_tidy, yield_area_2_tidy)
+region_yield_area_tidy <- left_join(yield_area_2_tidy, yield_area_1_tidy, by = "code")
 
 # filter only SA2 entries by region code
+# remove NA and 0 - no yield data
 region_yield_area_SA2 <- region_yield_area_tidy %>% 
   filter(between(code, 100000000, 999999999)) %>% 
-  mutate(code = as.factor(code))
+  filter(!is.na(yield)) %>%
+  filter(yield != 0) %>% 
+  mutate(code = as.factor(code)) %>% 
+  dplyr::select (-region.y)
 
 # filter only wine grapes landuse areas
-landuse_grapes <- subset(landuse, Commod_dsc == "grapes wine")
+landuse_grapes <- landuse %>% 
+  subset(Commod_dsc == "grapes wine") %>% 
+  subset(str_detect(Tertiary, "grapes|Grapes|vine"))
 
 # convert landuse polygons to points - faster computation
 # Get polygons centroids
@@ -94,25 +100,28 @@ landuse_grapes_centroids <- subset(landuse_grapes_centroids, Commod_dsc == "grap
 ### Merge Data ### 
 # join SA2 regions to landuses
 landuse_grapes_SA2 <- sp::over(x = landuse_grapes_centroids, y = SA2, returnList = FALSE)
-landuse_grapes_centroids@data <- data.frame(landuse_grapes_centroids, landuse_grapes_SA2)
+landuse_grapes_centroids@data <- data.frame(landuse_grapes_centroids, code = landuse_grapes_SA2$SA2_MAIN16, region = landuse_grapes_SA2$SA2_NAME16)
 
-# extract the climate and soil raster values to a list object for each SA2 region
-# long time to run 
-climate.temp <- raster::extract(mean_temp, SA2_SA_WA)
-climate.rainfall <- raster::extract(mean_rainfall, SA2_SA_WA)
-climate.solar <- raster::extract(annual_solar, SA2_SA_WA)
-soil.clay <-  raster::extract(WA_surface_clay, SA2_SA_WA)
+# extract the raster values to a vector for each landuse centroid
+landuse_temps <- raster::extract(mean_temp, landuse_grapes_centroids)
+landuse_rainfall <- raster::extract(mean_rainfall, landuse_grapes_centroids)
+landuse_solar <- raster::extract(annual_solar, landuse_grapes_centroids)
 
-# to obtain one average value for every polygon calculate the mean values with lapply
-climate.mean_temp_region <- unlist(lapply(climate.temp, FUN=mean))
-climate.mean_rainfall_region <- unlist(lapply(climate.rainfall, FUN=mean))
-climate.mean_solar_region <- unlist(lapply(climate.solar, FUN=mean))
-soil.mean_clay_region <- unlist(lapply(soil.clay, FUN=mean)) # lots of NA because the sample soil data does not cover all of WA and SA
+# merge climate, landuses and yields 
+landuse_climate <- data.frame(landuse_grapes_centroids@data, landuse_temps, landuse_rainfall, landuse_solar)
 
-# merge climate and soil values for each SA2 region with yields 
-SA2_SA_WA@data <- data.frame(SA2_SA_WA@data, mean_temp = climate.mean_temp_region, mean_rainfall = climate.mean_rainfall_region, mean_solar = climate.mean_solar_region, mean_soil_clay = soil.mean_clay_region)
+landuse_climate_yield <- left_join(landuse_climate, region_yield_area_SA2)
 
-region_yield_area_climate_soil_SA_WA <- left_join(region_yield_area_SA_WA, as.data.frame(SA2_SA_WA), by = c("code" = "SA2_MAIN16"))
+# tidy table
+yield_by_landuse <- landuse_climate_yield %>% 
+  dplyr::select(-Broad_type, -Source_yr, -Lucodev8n, -Tertiary, -Shape_Leng, -Shape_Area, -optional, -region.x, annual_temp = landuse_temps, annual_rain = landuse_rainfall, annual_solar = landuse_solar) %>% 
+  filter(!is.na(yield))
 
-region_yield_area_climate_soil_SA_WA <- region_yield_area_climate_soil_SA_WA %>% 
-  dplyr::select(code:businesses, SA3_region = SA3_NAME16, mean_temp:mean_soil_clay)
+# summarise for results by region
+yield_by_region <- yield_by_landuse %>% 
+  group_by(code) %>% 
+  summarise(region = first(region), state = first(State), grape_area_region = mean(area), grape_area_landuse = sum(Area_ha), annual_temp = mean(annual_temp), annual_rain = mean(annual_rain), annual_solar = mean(annual_solar), yield = mean(yield)) 
+
+# output tables  
+write.table(yield_by_landuse, file = here("project/src/output/yield_by_landuse.csv"), sep = ",", col.names = TRUE, row.names = FALSE, append = F, quote = FALSE)    
+write.table(yield_by_region, file = here("project/src/output/yield_by_region.csv"), sep = ",", col.names = TRUE, row.names = FALSE, append = F, quote = FALSE)
