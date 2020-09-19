@@ -7,8 +7,11 @@ library(rgdal)
 library(raster)
 library(rsdmx)
 library(sp)
-library(slga)
+library(slga) # retrieve data from the Soil and Landscape Grid of Australia
 library(readr)
+library(corrplot)
+library(GGally)
+library(lattice)
 
 ### loading, tidying and merging datasets ###
 ### yield data ###
@@ -17,18 +20,20 @@ library(readr)
 # Explanation of Australian Statistical Geography Standard (ASGS) regions https://www.abs.gov.au/websitedbs/d3310114.nsf/home/australian+statistical+geography+standard+(asgs)
 
 yield_area_raw <- read_csv(here::here("project/src/data/yield", "7121DO004_201516.csv"), skip = 4)
-
+head(yield_area_raw, 10)
 
 ### load gridded climate raster data ###
 mean_temp <- raster(here("project/src/data/BOM_climate/mean_temperature", "meanann.txt"))
 mean_rainfall <- raster(here("project/src/data/BOM_climate/mean_rainfall", "rnozan.txt"))
 annual_solar <- raster(here("project/src/data/BOM_climate/solar_exposure", "solaran.txt"))
 
+head(mean_rainfall, 10)
 ### load gridded soil raster data ###
 
 # get surface clay content for part of wheat belt in WA
-
+# first get a rectangluar region by longitude and latitude
 aoi_WA <- c(115.9, -34.2, 118.0, -30.6)
+# https://cran.r-project.org/web/packages/slga/vignettes/slga.html
 WA_surface_clay <- get_soils_data(product = 'NAT', attribute = 'CLY',
                                      component = 'VAL', depth = 1,
                                      aoi = aoi_WA, write_out = FALSE)
@@ -127,3 +132,58 @@ region_yield_area_climate_soil_SA_WA <- left_join(region_yield_area_SA_WA, as.da
 
 region_yield_area_climate_soil_SA_WA <- region_yield_area_climate_soil_SA_WA %>% 
   dplyr::select(code:businesses, SA3_region = SA3_NAME16, mean_temp:mean_soil_clay)
+
+# EDA on final dataset
+view(region_yield_area_climate_soil_SA_WA)
+# create a subset with only numeric columns selected
+ryacs_df_numeric <- region_yield_area_climate_soil_SA_WA %>%
+  dplyr::select(3,4,5,7,8,9,10)
+# not sure why business column is not numeric, so first convert it to numeric
+ryacs_df_numeric <- transform(ryacs_df_numeric, businesses = as.numeric(businesses))
+# generate summary statistics of numeric columns
+summary(ryacs_df_numeric)
+
+# http://www.cookbook-r.com/Graphs/Plotting_distributions_(ggplot2)/
+col = colnames(ryacs_df_numeric)
+for (i in 1:length(col)) {
+  pdf(paste("project/src/plot/histo_", col[i], ".pdf", sep=""))
+  h <- ggplot(data = ryacs_df_numeric, 
+              aes(ryacs_df_numeric[,i])) + 
+    geom_histogram(aes(y=..density..), 
+                   bins=30, color="black", fill="white") +
+    geom_density(alpha=.2, fill="#FF6666") + labs(x=col[i])
+  print(h)
+  dev.off()
+  
+  pdf(paste("project/src/plot/boxplot_", col[i], ".pdf", sep=""))
+  b <- ggplot(data = ryacs_df_numeric,
+         aes(y=ryacs_df_numeric[,i])) +
+    geom_boxplot(outlier.colour="red", outlier.shape=8,
+                 outlier.size=4, width=0.4) +
+    xlim(-0.5, 0.5) + labs(x=col[i], y = "")
+  print(b)
+  dev.off()
+}
+
+
+pdf("project/src/plot/correlation.pdf")
+cor_plot <- corrplot(cor(ryacs_df_numeric, use="pairwise.complete.obs"), method = "number")
+# ggsave("project/src/plot/correlation.pdf")
+print(cor_plot)
+dev.off()
+
+
+# Use library(GGally)
+pdf("project/src/plot/pair.pdf")
+ggpairs(ryacs_df_numeric, columns=1:7, aes()) + 
+  ggtitle("SA_WA_Agri_Scatter")
+print(ggpairs)
+dev.off()
+
+# Use library(lattice)
+pdf("project/src/plot/scatter_pair.pdf")
+splom(ryacs_df_numeric[1:7], 
+      main="SA_WA_Agri_Scatter")
+print(splom)
+dev.off()
+  
