@@ -130,4 +130,7 @@ ggplot(yield_by_region, aes(x = annual_rain, y = yield)) +
   geom_point()
 
 ggplot(yield_by_region, aes(x = annual_temp, y = yield)) +
+  geom_point() 
+
+ggplot(yield_by_region, aes(x = annual_solar, y = yield)) +
   geom_point()
