@@ -196,5 +196,5 @@ saveRDS(yield_by_landuse,file = here("project/src/output/yield_by_landuse.rds"))
 write.table(yield_by_region, file = here("project/src/output/yield_by_region.csv"), sep = ",", col.names = TRUE, row.names = FALSE, append = F, quote = FALSE)
 saveRDS(yield_by_region,file = here("project/src/output/yield_by_region.rds"))
 
-ggplot(yield_by_region, aes(x = lu_water_capacity, y = yield)) +
+ggplot(yield_by_region, aes(x = lu_mean_rain_dry, y = yield)) +
   geom_point()
