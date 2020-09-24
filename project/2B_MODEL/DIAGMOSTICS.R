@@ -117,4 +117,45 @@ model <- glm(yield ~ lu_water_capacity +
 summary(model)
 
 
+# 4) All Variables 
+
+model_all <- glm(yield ~ 
+               
+               lu_mean_temp_annual +
+               lu_mean_temp_winter +
+               lu_mean_temp_summer +
+               lu_max_temp_annual +
+               lu_max_temp_winter +
+               lu_max_temp_summer +
+               lu_min_temp_annual +
+               lu_min_temp_winter +
+               lu_min_temp_summer +
+               lu_mean_rain_annual +
+               lu_mean_rain_dry +
+               lu_mean_rain_wet +
+               lu_mean_solar_annual +
+               lu_mean_solar_dry +
+               lu_mean_solar_wet +
+               lu_bulk_density +
+               lu_carbon +
+               lu_clay +
+               lu_nitrogen +
+               lu_ph +
+               lu_phosphorus +
+               lu_sand +
+               lu_silt +
+               lu_water_capacity,
+             
+             
+             family = gaussian(link = "identity"),
+             
+             data = yield_region)
+
+summary(model_all)
+
+resid_panel(model_all, plots = "all")
+
+
+
+
 
