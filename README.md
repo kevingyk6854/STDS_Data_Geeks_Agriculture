@@ -52,3 +52,6 @@ Note:
 2. If you need any other extra help related to lfs, you could check these websites:  
 > https://git-lfs.github.com/  
 > https://www.jianshu.com/p/3f25cd20e392 (Chinese)  
+
+## How to download lfs objects
+- `git lfs pull`
