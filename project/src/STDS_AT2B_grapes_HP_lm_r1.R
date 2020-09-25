@@ -52,6 +52,7 @@ fit <- train(   x = train_feat,
 
 print(fit)
 summary(fit)
+plot(fit)
 
 # predict on our test set ----
 test_feat <- test %>% 
