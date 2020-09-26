@@ -116,7 +116,6 @@ model <- glm(yield ~ lu_water_capacity +
 
 summary(model)
 
-
 # 4) All Variables 
 
 model_all <- glm(yield ~ 
