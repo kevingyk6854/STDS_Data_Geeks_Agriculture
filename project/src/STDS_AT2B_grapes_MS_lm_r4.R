@@ -154,7 +154,12 @@ test$residuals <- test$yield - test$predicted #  Calculate residuals values of m
 
 rmse_test <- sqrt(mean(test$residuals ** 2)) # Root Mean Squared Error for test data 
 
-rmse_train/rmse_test # Check RMSEs shouldnt exceed 15% of each other
+rmse_ratio <- rmse_train/rmse_test # Check RMSEs shouldnt exceed 15% of each other
+
+SI <- rmse_test / mean(yield_by_region$yield)
+  
+# coefiicients
+fit_2[["coefficients"]]
 
 autoplot(fit_2)
 

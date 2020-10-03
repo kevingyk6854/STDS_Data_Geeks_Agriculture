@@ -6,6 +6,8 @@ library(dplyr)
 library(ggplot2)
 library(caret)
 library(hydroGOF)
+library(car)
+library(ggResidpanel)
 
 remove(list = ls())
 
@@ -42,7 +44,7 @@ fit <- train(   x = train_feat,
                 preProc = c("center","scale")
             )
 
-gplot(varImp(fit))
+ggplot(varImp(fit))
 
 
 print(fit)
@@ -89,7 +91,9 @@ rmse_train1/rmse_test1 # Check RMSEs shouldnt exceed 15% of each other
 
 var_select
 
+# coefficients
+fit_select[["coefficients"]]
 
+SI <- rmse_test1 / mean(yield_by_region$yield)
 
-
-
+rmse_ratio <- rmse_train1 / rmse_test1

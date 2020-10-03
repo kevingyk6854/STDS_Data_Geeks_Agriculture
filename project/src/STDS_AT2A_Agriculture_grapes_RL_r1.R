@@ -41,10 +41,13 @@ train_feat <- train %>%
     lu_mean_temp_nov
     ,lu_mean_rain_annual
     ,lu_mean_solar_wet
-    , lu_bulk_density
-    , lu_phosphorus
-    , lu_sand
-    , lu_water_capacity
+#    ,lu_bulk_density
+    ,lu_clay
+    ,lu_phosphorus
+    ,lu_nitrogen
+    ,lu_silt
+#    ,lu_sand
+#    ,lu_water_capacity
     ,total_water_used
     ,yield
     )
@@ -54,10 +57,13 @@ test_feat <- test %>%
     lu_mean_temp_nov
     ,lu_mean_rain_annual
     ,lu_mean_solar_wet
-    , lu_bulk_density
-    , lu_phosphorus
-    , lu_sand
-    , lu_water_capacity
+    #    ,lu_bulk_density
+    ,lu_clay
+    ,lu_phosphorus
+    ,lu_nitrogen
+    ,lu_silt
+    #    ,lu_sand
+    #    ,lu_water_capacity
     ,total_water_used
     ,yield
   )

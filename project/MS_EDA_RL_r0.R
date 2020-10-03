@@ -6,6 +6,12 @@ library (ggplot2)
 library (stringr)
 library(ggthemes)
 library(here)
+library(corrplot)
+
+remove(list = ls())
+
+# read data ----
+yield_by_region_1 <- readRDS(here("project/src/output/yield_by_region.rds"))
 
 
 # yield_by_region_1 <- readRDS(here('project/src/output/yield_by_region.rds')) %>% 
@@ -13,13 +19,15 @@ library(here)
 
 # how yield, temperatures correlate with one another
 yield_temp <- yield_by_region_1 %>%
+  dplyr::filter(yield < max(yield)) %>%
   dplyr::select(yield, starts_with('lu_mean_temp'))
+#  dplyr::select(yield, lu_mean_temp_may:lu_mean_temp_jul)
 yield_temp %>%
-  plot()
+  plot(main="Correlations Among Temperatures in May to July")
 # correlation matrix
 cor_temp <- cor(yield_temp)
 cor_temp %>%
-  corrp corrplot(method = "number", type="upper")
+  corrplot(method = "number", type="upper")
 # max correlation
 str(cor_temp)
 max(cor_temp[1, 2:length(colnames(cor_temp))])   # 0.3644882 --> lu_mean_temp_nov
@@ -47,8 +55,11 @@ max(yield_by_region_1[yield_by_region_1$yield < 39.38, 'yield']) # 24.6
 yield_rain <- yield_by_region_1 %>%
   dplyr::filter(yield < max(yield)) %>%
   dplyr::select(yield, starts_with('lu_mean_rain'))
+#  dplyr::select(yield, lu_mean_rain_may:lu_mean_rain_jul)
 yield_rain %>%
-  plot()
+  plot(
+    main="Correlations Among Rain in May to July"
+  )
 # correlation matrix
 cor_rain <- cor(yield_rain)
 cor_rain %>%
@@ -66,7 +77,7 @@ yield_solar <- yield_by_region_1 %>%
   dplyr::filter(yield < max(yield)) %>%
   dplyr::select(yield, starts_with('lu_mean_solar'))
 yield_solar %>%
-  plot()
+  plot(main="Correlations Among Solar Annual, Dry and Wet Seasons")
 # correlation matrix
 cor_solar <- cor(yield_solar)
 cor_solar %>%
@@ -82,19 +93,20 @@ max(abs(cor_solar[1, 2:length(colnames(cor_solar))]))   # 0.3315626 --> lu_mean_
 # how yield, solar correlate with one another
 yield_soil <- yield_by_region_1 %>%
   dplyr::filter(yield < max(yield)) %>%
-  dplyr::select(yield, lu_bulk_density
-                # , lu_carbon     # correlated with lu_water_capacity
+  dplyr::select(yield
+                 , lu_bulk_density
+                 , lu_carbon     # correlated with lu_water_capacity
                 # , lu_clay       # correlated with lu_sand
-                # , lu_nitrogen   # correlated with lu_water_capacity
-                # , lu_ph          # correlated with lu_water_capacity
-                , lu_phosphorus
-                , lu_sand
+                 , lu_nitrogen   # correlated with lu_water_capacity
+                , lu_ph          # correlated with lu_water_capacity
+                #, lu_phosphorus
+                # , lu_sand
                 # , lu_silt       # correlated with lu_sand
                 , lu_water_capacity
-                ,total_water_used
+                #,total_water_used
                 )
 yield_soil %>%
-  plot()
+  plot(main="Correlations Among Soil Variables")
 # correlation matrix
 cor_soil <- cor(yield_soil)
 cor_soil %>%

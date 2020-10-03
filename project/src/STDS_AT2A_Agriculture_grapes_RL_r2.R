@@ -94,6 +94,10 @@ summary(fit)
 ggplot(varImp(fit))
 imp <- varImp(fit)
 
+vif(fit) # Retain model if vif (Variable Inflation Factors) of each feature is below 5. 
+
+resid_panel(fit, plots = "all") # Diagnostic Plots
+
 # print model coefficients
 fit[["finalModel"]][["coefficients"]]
 
