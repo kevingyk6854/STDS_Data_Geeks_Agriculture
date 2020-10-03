@@ -101,6 +101,18 @@ boruta_signif <- names(boruta_output$finalDecision[boruta_output$finalDecision %
 print(boruta_signif)
 plot(boruta_output, cex.axis=.7, las=2, xlab="", main="Variable Importance")
 
+pdf(paste("project/src/plot/grape/", "var_importance.pdf", sep=""))
+p <- plot(boruta_output, xlab = "", xaxt = "n")
+lz<-lapply(1:ncol(boruta_output$ImpHistory),function(i)
+  boruta_output$ImpHistory[is.finite(boruta_output$ImpHistory[,i]),i])
+names(lz) <- colnames(boruta_output$ImpHistory)
+Labels <- sort(sapply(lz,median))
+axis(side = 1,las=2,labels = names(Labels),
+     at = 1:ncol(boruta_output$ImpHistory), cex.axis = 0.7)
+print(p)
+dev.off()
+# plot(boruta_output, cex.axis=.7, las=2, xlab="", main="Variable Importance")
+
 features <- getSelectedAttributes(boruta_output, withTentative = F)
 important_features <- c(features, "yield")
 m1 <- run_model(train, test, important_features, "lm")
